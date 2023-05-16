@@ -10,40 +10,27 @@ import time
 ## Limpiamos consola
 os.system("cls")
 
-## Definimos una funcion para crear una pequeña animacion
-def animacion():
-    ## sirve para simular que la comparacion esta en proceso y le da suspenso xD
-    cont = 0
-    while cont < 1:
-        
-        for i in range(6):
-            print('Generando el numero de la suerte' + '.' * i, end='\r')
-            time.sleep(0.5)
-        
-        cont += 1
-
 ## Generamos el numero aleatorio que el usuario debera adivinar
 aleatorio = random.randint(1, 100)
 
 ## Arranca el programa
 nombre = input("Ingrese nombre\n")
-print(f"A modo de guia aqui se muestra el numero ganador: {aleatorio}\n")
+##print(f"A modo de guia aqui se muestra el numero ganador: {aleatorio}\n")
 print("El numero a adivinar esta entre el 1 y el 100, pero solo tiene 8 intentos\n")
 numero = input("Ingrese un numero entero\n")
-animacion()
 cont = 1
 intentos = 8
 intentados = [] ## Creamos una lista para mostrar las opciones elejidas anteriormente a modo de guia del usuario
 
 while cont <= 8:
     
-    if numero.isdigit(): ## Verificamos que lo ingresado sea un numero
+    if numero.isdigit() and float(numero) != True: ## Verificamos que lo ingresado sea un numero
         
         intentos -= 1
         num = int(numero)
         if aleatorio == num: ## Si acerto entonces mostramos el mensaje y salimos del While
             
-            animacion()
+            
             os.system("cls")
             intentos += 1
             print(f"Felicidades {nombre} el numero {num} era el correcto y has acertado en el intento numero {cont}\n")
@@ -88,6 +75,5 @@ if cont > 8:
 ##  Araujo, Maria Itati
 ##  Acevedo, Ariel
 ##  Fankhauser, Agostina
-##  Walter Fontoura
 ##  Jonas Christian
 ##  Barrios, Daiana Soledad
